@@ -2,9 +2,11 @@
 ## Github Link
 https://github.com/Lileo0/SFR-News-Project
 ## Setup
-Run the docker-compose file
-Install required dependencies for the javascript via npm install 
-Run the java script file to publish a message into a topic
+* Run the docker-compose file
+
+* Install required dependencies for the javascript via npm install 
+
+* Run the java script file to publish a message into a topic
 ## Exercise 2
 ### Analyze how the following things are related:
 Number of brokers: Number of kafka servers 
