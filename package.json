@@ -1,0 +1,22 @@
+{
+  "name": "sfr-news-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lileo0/SFR-News-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lileo0/SFR-News-Project/issues"
+  },
+  "homepage": "https://github.com/Lileo0/SFR-News-Project#readme",
+  "dependencies": {
+    "kafkajs": "^2.2.4"
+  }
+}
