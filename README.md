@@ -20,7 +20,7 @@ Replication is enabled on a topic level.
 E.g. if the replica count is 3 it means that this message is also stored on 2 different brokers. 
 You typically have multiple brokers to ensure that no data gets lost.
 
-in.sync.replica: In order to keep aöö 3 replicas in sync we use leaders and followers.
+in.sync.replica: In order to keep all 3 replicas in sync we use leaders and followers.
 A leader replica is a specified topic to which the producers sends messages.
 Consumers also typically fetch from the leader, but can be configured to do otherwise
 Follower replicas will fetch data from the leader in order to keep in sync.
