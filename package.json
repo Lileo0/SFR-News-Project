@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Lileo0/SFR-News-Project#readme",
   "dependencies": {
-    "kafkajs": "^2.2.4"
+    "kafkajs": "^2.2.4",
+    "request": "^2.88.2"
   }
 }
