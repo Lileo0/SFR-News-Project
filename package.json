@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Lileo0/SFR-News-Project#readme",
   "dependencies": {
+    "avro-schema-registry": "^2.1.5",
+    "avsc": "^5.7.7",
     "kafkajs": "^2.2.4",
     "request": "^2.88.2"
   }
