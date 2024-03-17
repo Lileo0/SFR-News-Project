@@ -9,6 +9,7 @@ const avroSchema = {
         { name: 'title', type: 'string' },
         { name: 'date', type: 'string' },
         { name: 'text', type: 'string' },
+        { name: 'author', type: 'string' },
     ]
 };
 
@@ -27,7 +28,8 @@ const produceMessage = async () => {
     const message = {
         title: 'John Doe',
         date: 'bb',
-        text: 'aa'
+        text: 'aa',
+        author: 'asd'
     };
 
     // Serialize message to Avro binary format

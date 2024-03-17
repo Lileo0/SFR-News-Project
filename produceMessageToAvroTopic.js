@@ -14,12 +14,14 @@ const schema = {
         { name: 'title', type: 'string' },
         { name: 'date', type: 'string' },
         { name: 'text', type: 'string' },
+        { name: 'author', type: 'string' },
     ]
 };
 const message = {
     title: 'John Doe',
     date: 'bb',
-    text: 'aa'
+    text: 'aa',
+    author: 'dd'
 };
 
 const producer = kafka.producer();
@@ -37,7 +39,8 @@ const produceMessage = async () => {
     const message = {
         title: 'John Doe',
         date: 'bb',
-        text: 'aa'
+        text: 'aa',
+        author: 'dd'
     };
     await registry.encodeMessage('news-input', schema, message)
         .then((msg) => {
