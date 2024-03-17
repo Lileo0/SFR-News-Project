@@ -32,6 +32,6 @@ Follower replicas will fetch data from the leader in order to keep in sync.
 Once a leader has been defined and the followers are in sync that is called a in-sync replica set.
 
 ## Exercise 3
-### Analyze: How is the schema validated based on your selected compatibiluty mode?
+### Analyze: How is the schema validated based on your selected compatibility mode?
 
 [todo]
