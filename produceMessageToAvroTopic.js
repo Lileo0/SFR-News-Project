@@ -14,17 +14,19 @@ const schema = {
         { name: 'title', type: 'string' },
         { name: 'date', type: 'string' },
         { name: 'text', type: 'string' },
+        { name: 'author', type: 'string' },
     ]
 };
 const message = {
     title: 'John Doe',
     date: 'bb',
-    text: 'aa'
+    text: 'aa',
+    author: 'cc'
 };
 
 const producer = kafka.producer();
 let test
-registry.encodeMessage('news-input', schema, message)
+registry.encodeMessage('news-article', schema, message)
     .then((msg) => {
         console.log(msg);   // <Buffer 00 00 00 00 01 18 74 65 73 74 20 6d 65 73 73 61 67 65>
         test = msg
@@ -37,7 +39,8 @@ const produceMessage = async () => {
     const message = {
         title: 'John Doe',
         date: 'bb',
-        text: 'aa'
+        text: 'aa',
+        author: 'cc'
     };
     await registry.encodeMessage('news-input', schema, message)
         .then((msg) => {

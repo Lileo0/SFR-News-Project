@@ -10,7 +10,8 @@ const AVRO_SCHEMA = {
     "fields": [
         {"name": "title", "type": "string"},
         {"name": "date", "type": "string"},
-        {"name": "text", "type": "string"}
+        {"name": "text", "type": "string"},
+        {"name": "author", "type": "string"}
     ]
 };
 
