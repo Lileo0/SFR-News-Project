@@ -7,11 +7,19 @@ https://github.com/Lileo0/SFR-News-Project
 https://github.com/Lileo0/SFR-News-Provider
 
 ## Setup
+### How to run the SFR-News-Project:
 * Run the docker-compose file
 
-* Install required dependencies for the javascript via npm install 
+* Install required dependencies for the JavaScript via npm install 
 
-* Run the JavaScript file to publish a message into a topic
+* Run the produceMessageToAvroTopic JavaScript file to register a schema and publish a message into a topic
+* Optional: You can also register a schema separately by running the register-schema JavaScript file
+
+### How to run SFR-News-Provider Springboot Application
+* Run the docker-compose file
+* Build and run the Springboot application
+
+Additional Notes: The application can only work if the docker containers from SFR-News-Projects have been started and a schema has been registered, due to its usage of the schema registry.
 
 ## Exercise 3
 ### How is the Schema validated based on your compatibility mode
