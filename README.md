@@ -1,9 +1,9 @@
 # SFR-News-Project
-## Github Link
+## GitHub Link
 https://github.com/Lileo0/SFR-News-Project
 
 # SFR-News-Provider
-## Github Link
+## GitHub Link
 https://github.com/Lileo0/SFR-News-Provider
 
 ## Setup
@@ -11,7 +11,13 @@ https://github.com/Lileo0/SFR-News-Provider
 
 * Install required dependencies for the javascript via npm install 
 
-* Run the java script file to publish a message into a topic
+* Run the JavaScript file to publish a message into a topic
+
+## Exercise 3
+### How is the Schema validated based on your compatibility mode
+For the compatibility mode we stuck with the default compatibility mode of the confluent schema registry, which is default.
+Thus meaning that a newly provided schema is validated by comparing it to the previous version. Actions allowed are the deletion of fields and the addition of optional fields.
+
 ## Exercise 2
 ### Analyze how the following things are related:
 Number of brokers: Number of kafka servers 
@@ -26,12 +32,7 @@ E.g. if the replica count is 3 it means that this message is also stored on 2 di
 You typically have multiple brokers to ensure that no data gets lost.
 
 in.sync.replica: In order to keep all 3 replicas in sync we use leaders and followers.
-A leader replica is a specified topic to which the producers sends messages.
+A leader replica is a specified topic to which the producers send messages.
 Consumers also typically fetch from the leader, but can be configured to do otherwise
 Follower replicas will fetch data from the leader in order to keep in sync.
-Once a leader has been defined and the followers are in sync that is called a in-sync replica set.
-
-## Exercise 3
-### Analyze: How is the schema validated based on your selected compatibility mode?
-
-[todo]
+Once a leader has been defined and the followers are in sync that is called an in-sync replica set.
