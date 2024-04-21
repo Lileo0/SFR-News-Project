@@ -26,7 +26,7 @@ const message = {
 
 const producer = kafka.producer();
 let test
-registry.encodeMessage('news-article', schema, message)
+registry.encodeMessage('dev-newsfeed-article', schema, message)
     .then((msg) => {
         console.log(msg);   // <Buffer 00 00 00 00 01 18 74 65 73 74 20 6d 65 73 73 61 67 65>
         test = msg
@@ -42,7 +42,7 @@ const produceMessage = async () => {
         text: 'aa',
         author: 'cc'
     };
-    await registry.encodeMessage('news-input', schema, message)
+    await registry.encodeMessage('dev-newsfeed-article', schema, message)
         .then((msg) => {
             console.log(msg);   // <Buffer 00 00 00 00 01 18 74 65 73 74 20 6d 65 73 73 61 67 65>
             ss = msg
@@ -50,7 +50,7 @@ const produceMessage = async () => {
         })
 
     await producer.send({
-        topic: 'news-input',
+        topic: 'dev-newsfeed-article',
         messages: [
             { value: ss }
         ]

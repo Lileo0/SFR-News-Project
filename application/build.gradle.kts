@@ -57,6 +57,9 @@ dependencies {
     //implementation("org.openapitools:openapi-generator-gradle-plugin:7.2.0")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    // https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka
+    implementation("org.springframework.kafka:spring-kafka:3.1.4")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
