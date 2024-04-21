@@ -44,3 +44,20 @@ A leader replica is a specified topic to which the producers send messages.
 Consumers also typically fetch from the leader, but can be configured to do otherwise
 Follower replicas will fetch data from the leader in order to keep in sync.
 Once a leader has been defined and the followers are in sync that is called an in-sync replica set.
+
+## Exercise 4 
+### Backend System and Database
+
+What happens if the microservice goes down and cannot process the messages from Kafka anymore?
+
+What happens if the microservice consumes the messages and goes down while processing the message?
+
+What happens when the microservice consumes the message but cannot write the event into the database as it is unavailable?
+
+Can you span a transaction across reading from Kafka and writing to the database?
+
+Why did you decide on the given database model (SQL, NoSQL like document store, column store, or graph database)?
+
+What guarantees does the database give you if you want to join different entities?
+
+Describe how the database scales (leader/follower, sharding/partitioning, ...) horizontally to multiple instances?
