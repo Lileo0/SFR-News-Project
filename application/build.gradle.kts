@@ -24,6 +24,10 @@ sourceSets {
 
 repositories {
     mavenCentral()
+    maven {
+        url = uri("https://mvnrepository.com")
+        url = uri("https://packages.confluent.io/maven")
+    }
 }
 tasks.register<org.openapitools.generator.gradle.plugin.tasks.GenerateTask>("news_delegate_api") {
     generatorName.set("spring")
@@ -59,7 +63,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     // https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka
     implementation("org.springframework.kafka:spring-kafka:3.1.4")
-
+// https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer
+    implementation("io.confluent:kafka-avro-serializer:5.3.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
