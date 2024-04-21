@@ -48,21 +48,21 @@ Once a leader has been defined and the followers are in sync that is called an i
 ## Exercise 4 
 ### Backend System and Database
 
-What happens if the microservice goes down and cannot process the messages from Kafka anymore?
+##### What happens if the microservice goes down and cannot process the messages from Kafka anymore?
 
-What happens if the microservice consumes the messages and goes down while processing the message?
+##### What happens if the microservice consumes the messages and goes down while processing the message?
 
-What happens when the microservice consumes the message but cannot write the event into the database as it is unavailable?
+##### What happens when the microservice consumes the message but cannot write the event into the database as it is unavailable?
 
-Can you span a transaction across reading from Kafka and writing to the database?
+##### Can you span a transaction across reading from Kafka and writing to the database?
 
 
-Why did you decide on the given database model (SQL, NoSQL like document store, column store, or graph database)?
+##### Why did you decide on the given database model (SQL, NoSQL like document store, column store, or graph database)?
 Given that the data that is to be saved in the database always follows the same structure and at the current implementation no join statements are needed, the decision was made to use an SQL database, in this case postgres.
 
-What guarantees does the database give you if you want to join different entities?
+##### What guarantees does the database give you if you want to join different entities?
 PostgreSQL offers join capabilities, we can use SQL JOIN operations. PostgreSQL ensures consistency and transactional integrity during joins, adhering to ACID properties.
 
-Describe how the database scales (leader/follower, sharding/partitioning, ...) horizontally to multiple instances?
+##### Describe how the database scales (leader/follower, sharding/partitioning, ...) horizontally to multiple instances?
 For horizontal scaling, PostgreSQL supports several approaches. We would probably set up a leader/follower replication. Set up leader/follower replication. The leader handles writes, while followers replicate data for read scalability.
 Some other possibilities would be partitioning (divide the news table based on news providers or authors perhaps) or setting up a load balancer which would distribute incoming requests across multiple PostreSQL instances.
