@@ -66,6 +66,9 @@ dependencies {
 // https://mvnrepository.com/artifact/io.confluent/kafka-avro-serializer
     implementation("io.confluent:kafka-avro-serializer:5.3.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.postgresql:postgresql:42.7.2")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.liquibase:liquibase-core:4.26.0")
 }
 
 tasks.withType<KotlinCompile> {

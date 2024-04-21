@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5434/news
+    username: admin
+    password: admin
+  liquibase:
+    change-log: db/changelog.xml

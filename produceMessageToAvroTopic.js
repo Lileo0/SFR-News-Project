@@ -19,9 +19,9 @@ const schema = {
 };
 const message = {
     title: 'John Doe',
-    date: 'bb',
-    text: 'aa',
-    author: 'cc'
+    date: '1.1.2023',
+    text: 'a d sdf g  sh ht sreh aehae wrhae',
+    author: 'me'
 };
 
 const producer = kafka.producer();
@@ -38,9 +38,9 @@ const produceMessage = async () => {
     let ss
     const message = {
         title: 'John Doe',
-        date: 'bb',
-        text: 'aa',
-        author: 'cc'
+        date: '1.1.2023',
+        text: 'a d sdf g  sh ht sreh aehae wrhae',
+        author: 'me'
     };
     await registry.encodeMessage('dev-newsfeed-article', schema, message)
         .then((msg) => {
