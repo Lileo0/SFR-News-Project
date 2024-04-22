@@ -1,24 +1,29 @@
 package com.news.application
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer
-import org.apache.kafka.clients.consumer.ConsumerConfig
-import org.apache.kafka.common.serialization.StringDeserializer
+import io.confluent.kafka.serializers.KafkaAvroSerializer
+import org.apache.kafka.common.serialization.Serdes
+import org.apache.kafka.streams.StreamsConfig.APPLICATION_ID_CONFIG
+import org.apache.kafka.streams.StreamsConfig.BOOTSTRAP_SERVERS_CONFIG
+import org.apache.kafka.streams.StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG
+import org.apache.kafka.streams.StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.kafka.annotation.EnableKafka
-import org.springframework.kafka.core.ConsumerFactory
-import org.springframework.kafka.core.DefaultKafkaConsumerFactory
-import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-
+import org.springframework.kafka.annotation.EnableKafkaStreams
+import org.springframework.kafka.annotation.KafkaStreamsDefaultConfiguration
+import org.springframework.kafka.config.KafkaStreamsConfiguration
+import kotlin.io.print
 
 @Configuration
 @EnableKafka
+@EnableKafkaStreams
 class KafkaConfig {
-    //@Value(value = "\${spring.kafka.bootstrap-servers}")
-    //private val bootstrapAddress: String = "localhost:9092"
+    @Value(value = "\${spring.kafka.bootstrap-servers}")
+    private val bootstrapAddress: String = "localhost:9092"
 
-    /*@Bean(name = [KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME])
+    @Bean(name = [KafkaStreamsDefaultConfiguration.DEFAULT_STREAMS_CONFIG_BEAN_NAME])
     fun kStreamsConfig(): KafkaStreamsConfiguration {
         val kafkaSer = KafkaAvroSerializer()
         val kafkaDe = KafkaAvroDeserializer()
@@ -34,21 +39,5 @@ class KafkaConfig {
         props["schema.registry.url"] = "http://localhost:8090";
 
         return KafkaStreamsConfiguration(props)
-    }*/
-
-    @Bean
-    fun consumerFactory(): ConsumerFactory<String?, Any?>? {
-        val kafkaDe = KafkaAvroDeserializer()
-        kafkaDe.configure(
-            mapOf("schema.registry.url" to "http://localhost:8090"),false
-        )
-        val props: MutableMap<String, Any> = HashMap()
-        props[ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG] = "localhost:9092"
-        props[ConsumerConfig.GROUP_ID_CONFIG] = "news-group"
-        props[ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG] = StringDeserializer::class.java
-        props[ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG] = kafkaDe
-        props[ErrorHandlingDeserializer.VALUE_DESERIALIZER_CLASS] = kafkaDe
-        props["schema.registry.url"] = "http://localhost:8090"
-        return DefaultKafkaConsumerFactory(props)
     }
 }

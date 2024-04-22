@@ -59,7 +59,7 @@ dependencies {
     implementation("io.swagger.core.v3:swagger-annotations:2.2.21")
 
     //implementation("org.openapitools:openapi-generator-gradle-plugin:7.2.0")
-
+    implementation("org.apache.kafka:kafka-streams:3.7.0")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     // https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka
     implementation("org.springframework.kafka:spring-kafka:3.1.4")
