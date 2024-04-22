@@ -2,6 +2,7 @@ package com.news.application
 
 import io.confluent.kafka.serializers.KafkaAvroDeserializer
 import io.confluent.kafka.serializers.KafkaAvroSerializer
+import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.common.serialization.Serdes
 import org.apache.kafka.streams.StreamsConfig.APPLICATION_ID_CONFIG
 import org.apache.kafka.streams.StreamsConfig.BOOTSTRAP_SERVERS_CONFIG
@@ -35,6 +36,8 @@ class KafkaConfig {
         props[BOOTSTRAP_SERVERS_CONFIG] = bootstrapAddress
         props[DEFAULT_KEY_SERDE_CLASS_CONFIG] = Serdes.String().javaClass.getName()
         props[DEFAULT_VALUE_SERDE_CLASS_CONFIG] = Serdes.String().javaClass.getName()
+        props[ConsumerConfig.AUTO_OFFSET_RESET_CONFIG] = "earliest"
+        //props[ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG] = false
 
         props["schema.registry.url"] = "http://localhost:8090";
 

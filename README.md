@@ -26,9 +26,9 @@ Additional Notes: The application can only work if the docker containers from SF
 ##### What happens if the microservice goes down and cannot process the messages from Kafka anymore?
 The microservice comes back up and resumes consumption. Depending on the Kafka consumer group's configuration, other consumer instances in the same group may take over processing those messages in the meantime.
 ##### What happens if the microservice consumes the messages and goes down while processing the message?
-If the acknowledgment mode is set to ackMode="auto", the message will be considered processed as soon as it is read from Kafka, 
+If the acknowledgment mode is set to automatic, the message will be considered processed as soon as it is read from Kafka, 
 and if the microservice crashes before completing processing, the message will not be reprocessed automatically. 
-However, if the acknowledgment mode is set to ackMode="manual", the microservice can acknowledge the message only after it has been successfully processed, 
+However, if the acknowledgment mode is set to ackMode="manual", the microservice can acknowledge the message manually after it has been successfully processed, 
 ensuring that the message will be reprocessed if the microservice crashes before acknowledgment.
 ##### What happens when the microservice consumes the message but cannot write the event into the database as it is unavailable?
 The microservice should ideally handle such failures gracefully, log the error, and retry writing to the database after a certain delay or backoff strategy. 
