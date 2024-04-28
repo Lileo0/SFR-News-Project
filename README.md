@@ -15,6 +15,8 @@ https://github.com/Lileo0/SFR-News-Provider
 * Run the produceMessageToAvroTopic JavaScript file to register a schema and publish a message into a topic
 * Optional: You can also register a schema separately by running the register-schema JavaScript file
 
+* Build the project to create the API Delegate and DTO from the news API Specification
+* Start the Application
 ### How to run SFR-News-Provider Springboot Application
 * Run the docker-compose file
 * Build and run the Springboot application
