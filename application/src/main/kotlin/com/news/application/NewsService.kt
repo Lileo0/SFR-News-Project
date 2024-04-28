@@ -2,6 +2,7 @@ package com.news.application
 
 import com.news.application.api.model.NewsApiDto
 import org.springframework.stereotype.Service
+import java.math.BigInteger
 
 @Service
 class NewsService(val db: NewsRepository) {
@@ -17,6 +18,10 @@ class NewsService(val db: NewsRepository) {
             newList.add(convertToDTO(newsElement))
         }
         return newList
+    }
+    fun getSingle(id: Int) : NewsApiDto{
+        var result = db.findById(id.toBigInteger())
+        return convertToDTO(result.get())
     }
 
     fun convertToDTO(news: News) : NewsApiDto {

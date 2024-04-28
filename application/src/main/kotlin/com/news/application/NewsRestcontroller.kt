@@ -13,4 +13,8 @@ class NewsRestcontroller(val db: NewsService): NewsApiDelegate {
         var results = db.getAll()
         return ResponseEntity.ok(results)
     }
+
+    override fun getSingleNews(id: Int?): ResponseEntity<NewsApiDto> {
+        return ResponseEntity.ok(id?.let { db.getSingle(it) })
+    }
 }

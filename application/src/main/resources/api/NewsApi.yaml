@@ -21,6 +21,27 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/News'
+
+  /News/{id}:
+    get:
+      operationId: getSingleNews
+      summary: Get a single News Entry
+      description: Returns a single news entry
+      parameters:
+        - name: id
+          in: path
+          description: ID of the news entry to retrieve
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A single News entry.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/News'
+
 components:
   schemas:
     News:
